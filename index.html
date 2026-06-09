@@ -16,7 +16,30 @@
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400..800&amp;display=swap" id="all-fonts-link-font-newsreader" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:wght@400;500;600;700&amp;display=swap" id="all-fonts-link-font-google-sans-flex" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&amp;display=swap" id="all-fonts-link-font-oswald" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&amp;display=swap" id="all-fonts-link-font-dm-sans" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&amp;display=swap" id="all-fonts-link-font-cormorant" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&amp;display=swap" id="all-fonts-link-font-geist" rel="stylesheet"/><!-- aura-ga4-start -->
 <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-2M6V79H761"></script>
 <!-- aura-ga4-end -->
-<link href="/src/style.css" rel="stylesheet"/><script src="/src/main.js" type="module"></script></head>
+<link href="/src/style.css" rel="stylesheet"/><script>
+  window.addEventListener('error', function(e) {
+    var errorDiv = document.getElementById('js-error-overlay');
+    if (!errorDiv) {
+      errorDiv = document.createElement('div');
+      errorDiv.id = 'js-error-overlay';
+      errorDiv.style.position = 'fixed';
+      errorDiv.style.bottom = '20px';
+      errorDiv.style.right = '20px';
+      errorDiv.style.background = '#ef4444';
+      errorDiv.style.color = '#ffffff';
+      errorDiv.style.padding = '16px';
+      errorDiv.style.borderRadius = '8px';
+      errorDiv.style.zIndex = '999999';
+      errorDiv.style.maxWidth = '400px';
+      errorDiv.style.boxShadow = '0 10px 15px -3px rgba(0, 0, 0, 0.1)';
+      errorDiv.style.fontFamily = 'monospace';
+      errorDiv.style.fontSize = '12px';
+      errorDiv.style.whiteSpace = 'pre-wrap';
+      document.body.appendChild(errorDiv);
+    }
+    errorDiv.innerHTML = '<strong>JS Error:</strong> ' + e.message + '\nat ' + e.filename + ':' + e.lineno + ':' + e.colno;
+  });
+</script><script src="/src/main.js" type="module"></script></head>
 <body class="min-h-screen antialiased text-white bg-black overflow-x-hidden">
 <!-- Navigation -->
 <header class="z-20 [animation:fadeSlideIn_0.8s_ease-out_0.1s_both] relative">
@@ -128,10 +151,7 @@
 <div class="aura-background-component pointer-events-none absolute inset-0 z-0 w-full h-full overflow-hidden saturate-150 bg-gradient-to-br from-blue-500/10 to-blue-500/0 rounded-none" data-alpha-mask="80" style="position: absolute; inset: 0; z-index: 0; width: 100%; height: 100%; overflow: hidden; pointer-events: none; --border-gradient: linear-gradient(135deg, rgba(59, 130, 246, 0.2), rgba(59, 130, 246, 0)); --border-radius-before: 0; -webkit-mask-image: linear-gradient(transparent, black 0%, black 80%, transparent); mask-image: linear-gradient(transparent, black 0%, black 80%, transparent);">
 <div class="absolute inset-0 z-0 w-full h-full" data-us-project="bcBYZIStYXwiogchBNHO" style="position: absolute; inset: 0; z-index: 0; width: 100%; height: 100%;"></div>
 </div>
-
 <!-- Hero Visual (dashboard mock) -->
-
-
 <div class="max-w-6xl mx-auto px-4 lg:px-8 pt-16 lg:pt-32 relative z-10 w-full flex flex-col items-center"><div class="text-center max-w-3xl mx-auto relative z-10">
 <!-- Customers strip -->
 <div class="flex flex-col [animation:fadeSlideIn_0.8s_ease-out_0.2s_both] mb-6 space-y-3 items-center">
@@ -1430,21 +1450,21 @@
             </p>
 </div>
 <!-- Cards -->
-<div class="grid lg:grid-cols-[minmax(0,3fr)_minmax(0,2fr)] sm:pt-8 sm:pr-8 sm:pb-8 sm:pl-8 sm:gap-x-10 sm:gap-y-10 bg-slate-950/80 border-white/5 border rounded-sm mt-8 mb-8 pt-6 pr-4 pb-6 pl-4 gap-x-6 gap-y-6">
+<div class="grid lg:grid-cols-[minmax(0,3fr)_minmax(0,2fr)] sm:pt-8 sm:pr-8 sm:pb-8 sm:pl-8 sm:gap-x-10 sm:gap-y-10 bg-slate-950/80 border-white/5 border rounded-sm mt-8 mb-8 pt-6 pr-4 pb-6 pl-4 gap-x-6 gap-y-6" id="testimonialCard">
 <!-- Quote -->
 <div class="flex flex-col justify-center">
-<p class="mt-4 text-xl font-medium tracking-tight text-slate-50 sm:text-2xl" style="font-family: 'Playfair Display', ui-serif, Georgia, 'Times New Roman', serif;">
+<p class="mt-4 text-xl font-medium tracking-tight text-slate-50 sm:text-2xl" id="testimonialQuote" style="font-family: 'Playfair Display', ui-serif, Georgia, 'Times New Roman', serif;">
                 “NovaFlow gave our CS team complete account clarity. We consolidated four disconnected analytics tools into one central console, allowing us to spot upgrades early and grow our NRR by 18% in under one quarter.”
               </p>
 <div class="mt-6 flex items-center gap-3">
 <div class="h-9 w-9 overflow-hidden rounded-full bg-slate-700">
-<img alt="Customer" class="h-full w-full object-cover" src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&amp;fit=crop&amp;w=200&amp;q=80"/>
+<img alt="Customer" class="h-full w-full object-cover" id="testimonialAvatar" src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&amp;fit=crop&amp;w=200&amp;q=80"/>
 </div>
 <div class="">
-<p class="text-sm font-medium text-slate-100" style="font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;">
+<p class="text-sm font-medium text-slate-100" id="testimonialAuthor" style="font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;">
                     VP of Customer Operations
                   </p>
-<p class="text-[11px] text-slate-400" style="font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;">
+<p class="text-[11px] text-slate-400" id="testimonialCompany" style="font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;">
                     Enterprise SaaS Provider · +18% NRR Uplift
                   </p>
 </div>
@@ -1463,29 +1483,29 @@
 <div class="grid gap-4 sm:grid-cols-3">
 <!-- Metric 1 -->
 <div class="space-y-1">
-<p class="text-[11px] text-slate-400">
+<p class="text-[11px] text-slate-400" id="testimonialMetric1Label">
                     Average NRR Uplift
                   </p>
-<p class="mt-1 text-2xl sm:text-3xl font-semibold tracking-tight text-sky-300">
+<p class="mt-1 text-2xl sm:text-3xl font-semibold tracking-tight text-sky-300" id="testimonialMetric1Value">
                     +15%
                   </p>
-<p class="text-[11px] text-slate-500">within 90 days</p>
+<p class="text-[11px] text-slate-500" id="testimonialMetric1Sub">within 90 days</p>
 </div>
 <!-- Metric 2 -->
 <div class="space-y-1 sm:border-l sm:border-white/5 sm:pl-5">
-<p class="text-[11px] text-slate-400">Handoff Efficiency</p>
-<p class="mt-1 text-2xl sm:text-3xl font-semibold tracking-tight text-sky-300">
+<p class="text-[11px] text-slate-400" id="testimonialMetric2Label">Handoff Efficiency</p>
+<p class="mt-1 text-2xl sm:text-3xl font-semibold tracking-tight text-sky-300" id="testimonialMetric2Value">
                     4.2×
                   </p>
-<p class="text-[11px] text-slate-500">faster response</p>
+<p class="text-[11px] text-slate-500" id="testimonialMetric2Sub">faster response</p>
 </div>
 <!-- Metric 3 -->
 <div class="space-y-1 sm:border-l sm:border-white/5 sm:pl-5">
-<p class="text-[11px] text-slate-400">Contraction Prevented</p>
-<p class="mt-1 text-2xl sm:text-3xl font-semibold tracking-tight text-sky-300">
+<p class="text-[11px] text-slate-400" id="testimonialMetric3Label">Contraction Prevented</p>
+<p class="mt-1 text-2xl sm:text-3xl font-semibold tracking-tight text-sky-300" id="testimonialMetric3Value">
                     −30%
                   </p>
-<p class="text-[11px] text-slate-500">fewer customer downgrades</p>
+<p class="text-[11px] text-slate-500" id="testimonialMetric3Sub">fewer customer downgrades</p>
 </div>
 </div>
 <!-- CTA -->
@@ -1508,16 +1528,13 @@
 <div class="flex items-center gap-3 text-slate-400"></div>
 </div>
 <div class="flex items-center gap-4 text-[11px] text-slate-400" style="font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;">
-<button aria-label="Previous testimonial" class="flex h-8 w-8 items-center justify-center rounded-full border border-white/10 bg-slate-900/70 text-slate-200 hover:bg-slate-900">
+<button aria-label="Previous testimonial" class="flex h-8 w-8 items-center justify-center rounded-full border border-white/10 bg-slate-900/70 text-slate-200 hover:bg-slate-900" id="testimonialPrevBtn">
 <svg class="h-3.5 w-3.5" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
 <path d="m15 18-6-6 6-6"></path>
 </svg>
 </button>
-<div class="flex flex-1 items-center gap-2">
-<span class="h-[2px] w-10 rounded-full bg-sky-400"></span>
-<span class="h-[2px] flex-1 rounded-full bg-slate-700"></span>
-</div>
-<button aria-label="Next testimonial" class="flex h-8 w-8 items-center justify-center rounded-full border border-white/10 bg-slate-900/70 text-slate-200 hover:bg-slate-900">
+<div class="flex flex-1 items-center gap-2 h-[2px] bg-slate-700 rounded-full relative"><span class="absolute left-0 top-0 h-full rounded-full bg-sky-400 transition-all duration-300" id="testimonialProgressBar" style="width: 33.3%;"></span></div>
+<button aria-label="Next testimonial" class="flex h-8 w-8 items-center justify-center rounded-full border border-white/10 bg-slate-900/70 text-slate-200 hover:bg-slate-900" id="testimonialNextBtn">
 <svg class="h-3.5 w-3.5" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
 <path d="m9 18 6-6-6-6"></path>
 </svg>
@@ -1804,7 +1821,7 @@
 </div>
 </div>
 </div>
-</section>
+</div></section>
 <section class="flex flex-col [animation:fadeSlideIn_0.8s_ease-out_0.1s_both] animate-on-scroll lg:px-8 w-full bg-gradient-to-br from-blue-500/0 via-blue-500/10 to-blue-500/0">
 <div class="pr-4 pl-4 text-center flex flex-col items-center justify-center relative max-w-6xl mx-auto md:px-8 w-full relative py-20 lg:py-28" style="position: relative; --border-gradient: linear-gradient(135deg, rgba(59, 130, 246, 0.2), rgba(59, 130, 246, 0)); --border-radius-before: 0">
 <!-- Background glows -->
@@ -2038,5 +2055,80 @@
 </button>
 </div>
 </div>
+<!-- Diagnostic Dashboard -->
+<div id="diagnostic-panel" style="position: fixed; bottom: 80px; left: 20px; z-index: 999999; font-family: monospace; font-size: 11px; background: rgba(15, 23, 42, 0.95); border: 1px solid rgba(255,255,255,0.1); border-radius: 6px; color: #cbd5e1; max-width: 320px; width: 320px; box-shadow: 0 10px 25px -5px rgba(0,0,0,0.5); display: flex; flex-direction: column; overflow: hidden;">
+  <div style="padding: 8px 12px; border-bottom: 1px solid rgba(255,255,255,0.1); font-weight: bold; background: rgba(30,41,59,0.5); display: flex; justify-content: space-between; align-items: center; cursor: pointer;" onclick="var l = document.getElementById('diagnostic-logs'); l.style.display = l.style.display === 'none' ? 'block' : 'none';">
+    <span>NovaFlow Diagnostics</span>
+    <span id="diagnostic-toggle-btn" style="font-size: 10px; color: #38bdf8;">[Show Logs]</span>
+  </div>
+  <div id="diagnostic-logs" style="padding: 8px 12px; overflow-y: auto; max-height: 180px; display: none; height: 180px;">
+    <div id="diagnostic-status" style="margin-bottom: 8px; padding-bottom: 8px; border-bottom: 1px dashed rgba(255,255,255,0.1);">Checking status...</div>
+    <div id="diagnostic-log-entries" style="display: flex; flex-direction: column; gap: 4px;"></div>
+  </div>
+</div>
+<script>
+  (function() {
+    var logs = [];
+    var logEntriesEl = null;
+    var statusEl = null;
+    
+    function addLog(type, msg) {
+      logs.push({type: type, msg: msg});
+      if (logs.length > 50) logs.shift();
+      
+      logEntriesEl = document.getElementById('diagnostic-log-entries');
+      if (logEntriesEl) {
+        var el = document.createElement('div');
+        el.style.color = type === 'error' ? '#ef4444' : (type === 'warn' ? '#f59e0b' : '#cbd5e1');
+        el.textContent = '[' + type.toUpperCase() + '] ' + msg;
+        logEntriesEl.appendChild(el);
+        logEntriesEl.scrollTop = logEntriesEl.scrollHeight;
+      }
+    }
+
+    // Capture standard logs
+    var _log = console.log;
+    var _warn = console.warn;
+    var _error = console.error;
+
+    console.log = function() {
+      var args = Array.prototype.slice.call(arguments);
+      _log.apply(console, args);
+      addLog('log', args.map(function(x) { return typeof x === 'object' ? JSON.stringify(x) : x; }).join(' '));
+    };
+    console.warn = function() {
+      var args = Array.prototype.slice.call(arguments);
+      _warn.apply(console, args);
+      addLog('warn', args.map(function(x) { return typeof x === 'object' ? JSON.stringify(x) : x; }).join(' '));
+    };
+    console.error = function() {
+      var args = Array.prototype.slice.call(arguments);
+      _error.apply(console, args);
+      addLog('error', args.map(function(x) { return typeof x === 'object' ? JSON.stringify(x) : x; }).join(' '));
+    };
+
+    // Update status every second
+    setInterval(function() {
+      statusEl = document.getElementById('diagnostic-status');
+      var toggleBtn = document.getElementById('diagnostic-toggle-btn');
+      var logPanel = document.getElementById('diagnostic-logs');
+      if (toggleBtn && logPanel) {
+        toggleBtn.textContent = logPanel.style.display === 'none' ? '[Show Logs]' : '[Hide Logs]';
+      }
+      
+      if (!statusEl) return;
+      var prev = document.getElementById('testimonialPrevBtn');
+      var next = document.getElementById('testimonialNextBtn');
+      var quote = document.getElementById('testimonialQuote');
+      var cards = document.getElementById('testimonialCard');
+      
+      statusEl.innerHTML = 
+        'PrevBtn: ' + (prev ? '<span style="color:#22c55e">OK</span>' : '<span style="color:#ef4444">Null</span>') + '<br>' +
+        'NextBtn: ' + (next ? '<span style="color:#22c55e">OK</span>' : '<span style="color:#ef4444">Null</span>') + '<br>' +
+        'QuoteEl: ' + (quote ? '<span style="color:#22c55e">OK</span>' : '<span style="color:#ef4444">Null</span>') + '<br>' +
+        'CardContainer: ' + (cards ? '<span style="color:#22c55e">OK</span>' : '<span style="color:#ef4444">Null</span>');
+    }, 1000);
+  })();
+</script>
 </main>
 </body></html>
