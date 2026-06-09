@@ -1,0 +1,129 @@
+@import "tailwindcss";
+
+/* --- Injected Custom Styles from original template --- */
+
+/* Entrance animation keyframe */
+@keyframes fadeSlideIn {
+0% {
+opacity: 0;
+transform: translateY(20px);
+}
+100% {
+opacity: 1;
+transform: translateY(0);
+}
+}
+/* Default: paused for scroll animations */
+.animate-on-scroll {
+animation-play-state: paused !important;
+will-change: opacity, transform;
+}
+/* Activated by JS */
+.animate-on-scroll.animate {
+animation-play-state: running !important;
+}
+
+
+.font-newsreader { font-family: 'Newsreader', serif !important; }
+
+
+.font-google-sans-flex { font-family: 'Google Sans Flex', sans-serif !important; }
+
+
+.font-oswald { font-family: 'Oswald', sans-serif !important; }
+
+
+.font-dm-sans { font-family: 'DM Sans', sans-serif !important; }
+
+
+.font-cormorant { font-family: 'Cormorant Garamond', serif !important; }
+
+.font-geist { font-family: 'Geist', sans-serif !important; }
+
+[style*="--border-gradient"]::before {
+content: "";
+position: absolute;
+inset: 0;
+padding: 1px;
+border-radius: var(--border-radius-before, inherit);
+-webkit-mask: linear-gradient(#fff 0 0) content-box,
+linear-gradient(#fff 0 0);
+-webkit-mask-composite: xor;
+mask-composite: exclude;
+background: var(--border-gradient);
+pointer-events: none;
+}
+
+                button:hover .hover-blur-left,
+                button:hover .hover-blur-right,
+                button:hover .hover-blur-top,
+                button:hover .hover-blur-bottom {
+                  opacity: 1;
+                }
+                button:hover .hover-radial-glow {
+                  opacity: 1;
+                }
+              
+
+            @keyframes marquee-scroll {
+              0% { transform: translateX(0); }
+              100% { transform: translateX(-50%); }
+            }
+          
+
+    @keyframes aura-bar { 
+      0%, 10% { transform: scaleX(0); } 
+      40%, 90% { transform: scaleX(1); } 
+      100% { transform: scaleX(0); } 
+    }
+    @keyframes aura-spark { 
+      0%, 20% { stroke-dashoffset: 150; } 
+      50%, 90% { stroke-dashoffset: 0; } 
+      100% { stroke-dashoffset: 150; } 
+    }
+    @keyframes aura-fade { 
+      0%, 30% { opacity: 0; } 
+      50%, 90% { opacity: 0.4; } 
+      100% { opacity: 0; } 
+    }
+    @keyframes aura-dot { 
+      0%, 40% { opacity: 0; } 
+      50%, 90% { opacity: 1; } 
+      100% { opacity: 0; } 
+    }
+    @keyframes aura-pulse { 
+      0%, 100% { opacity: 0.6; } 
+      50% { opacity: 1; } 
+    }
+  
+
+
+/* Custom styles for animations & scroll reveal */
+.animate-on-scroll:not([style*="animation"]) {
+  opacity: 0;
+  transform: translateY(30px);
+  filter: blur(5px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), 
+              transform 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+              filter 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.animate-on-scroll:not([style*="animation"]).animate {
+  opacity: 1;
+  transform: translateY(0);
+  filter: blur(0);
+}
+
+/* Shiny CTA animate spin */
+@keyframes border-spin {
+  to {
+    --gradient-angle: 360deg;
+  }
+}
+
+/* Custom fonts setup (if needed in Tailwind v4) */
+@theme {
+  --font-sans: "Inter", sans-serif;
+  --font-serif: "Newsreader", serif;
+  --font-geist: "Geist", sans-serif;
+}
