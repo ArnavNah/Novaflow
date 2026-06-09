@@ -202,3 +202,47 @@ window.addEventListener("DOMContentLoaded", () => {
     });
   });
 })();
+
+// --- Interactive FAQ Accordion ---
+(function () {
+  window.addEventListener("DOMContentLoaded", () => {
+    const faqItems = document.querySelectorAll(".faq-item");
+    faqItems.forEach(item => {
+      const trigger = item.querySelector(".faq-trigger");
+      const content = item.querySelector(".faq-content");
+      const icon = item.querySelector(".faq-icon");
+      
+      if (trigger && content && icon) {
+        trigger.addEventListener("click", () => {
+          const isHidden = content.classList.contains("hidden");
+          // Close all other FAQs
+          faqItems.forEach(otherItem => {
+            const otherContent = otherItem.querySelector(".faq-content");
+            const otherIcon = otherItem.querySelector(".faq-icon");
+            if (otherContent && otherContent !== content) {
+              otherContent.classList.add("hidden");
+            }
+            if (otherIcon && otherIcon !== icon) {
+              otherIcon.classList.remove("bg-slate-800", "text-sky-400");
+              otherIcon.classList.add("bg-white/5", "text-slate-400");
+              otherIcon.innerHTML = `<svg class="lucide lucide-plus" fill="none" height="14" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="14" xmlns="http://www.w3.org/2000/svg"><path d="M5 12h14"></path><path d="M12 5v14"></path></svg>`;
+            }
+          });
+          
+          if (isHidden) {
+            content.classList.remove("hidden");
+            icon.classList.remove("bg-white/5", "text-slate-400");
+            icon.classList.add("bg-slate-800", "text-sky-400");
+            icon.innerHTML = `<svg class="lucide lucide-minus" fill="none" height="14" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="14" xmlns="http://www.w3.org/2000/svg"><path d="M5 12h14"></path></svg>`;
+          } else {
+            content.classList.add("hidden");
+            icon.classList.remove("bg-slate-800", "text-sky-400");
+            icon.classList.add("bg-white/5", "text-slate-400");
+            icon.innerHTML = `<svg class="lucide lucide-plus" fill="none" height="14" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="14" xmlns="http://www.w3.org/2000/svg"><path d="M5 12h14"></path><path d="M12 5v14"></path></svg>`;
+          }
+        });
+      }
+    });
+  });
+})();
+
